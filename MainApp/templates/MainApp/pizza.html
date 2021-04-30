@@ -1,0 +1,34 @@
+{% extends "MainApp/base.html" %}
+
+{% block content %}
+
+<p>Pizza: {{ pizza }}</p>
+
+<p>Toppings: </p>
+<ul>
+    {% for topping in toppings %}
+    <li>
+
+        <p>{{ topping.name|linebreaks }}</p>
+    </li>
+    {% empty %}
+    <li>There are no toppings for this pizza yet. </li>
+    {% endfor %}
+</ul>
+<p>Comments: </p>
+<ul>
+    {% for comment in comments %}
+
+    <li>
+        <p>{{ comment.date_added|date:'M d, Y H:i' }}</p>
+        <p>{{ comment.text|linebreaks }}</p>
+    </li>
+    {% empty %}
+    <li>There are no comments for this pizza yet. Be the first to add one!</li>
+    {% endfor %}
+</ul>
+<p>
+    <a href="{% url 'MainApp:new_comment' pizza.id %}">Add a comment</a>
+</p>
+
+{% endblock content %}
