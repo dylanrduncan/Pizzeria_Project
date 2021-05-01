@@ -15,13 +15,14 @@
     <li>There are no toppings for this pizza yet. </li>
     {% endfor %}
 </ul>
+
 <p>Comments: </p>
 <ul>
     {% for comment in comments %}
 
     <li>
         <p>{{ comment.date_added|date:'M d, Y H:i' }}</p>
-        <p>{{ comment.text|linebreaks }}</p>
+        <p>{{ comment.text|linebreaks }} -- {{ comment.username }}</p>
     </li>
     {% empty %}
     <li>There are no comments for this pizza yet. Be the first to add one!</li>
