@@ -3,10 +3,11 @@
     <p>
         <a href='{% url "MainApp:index" %}'>Bhojwani's Pizza Shack</a>
         <a href='{% url "MainApp:pizzas" %}'>Pizzas</a>
+    <DIV align='right'>
         {% if user.is_authenticated %}
         Hello, {{ user.username }}.
 
-    <DIV align='right'>
+
         <a href="{% url 'users:logout' %}">Log out</a>
         {% else %}
         <a href="{% url 'users:register' %}">Register</a>
