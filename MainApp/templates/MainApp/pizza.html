@@ -2,7 +2,11 @@
 
 {% block content %}
 
-<p>Pizza: {{ pizza }}</p>
+<b style='font-size:40px'>{{ pizza }}</b>
+<p></p>
+{% if pizza.image %}
+<img src="{{pizza.image.url}}" />
+{% endif %}
 
 <p>Toppings: </p>
 <ul>
